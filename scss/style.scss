@@ -235,7 +235,8 @@ body {
 
 
 .lds-roller {
-    display: none;
+    display: inline-block;
+    visibility: hidden;
     position: relative;
     width: 80px;
     height: 80px;

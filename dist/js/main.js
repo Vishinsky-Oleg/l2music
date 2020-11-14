@@ -114,7 +114,7 @@ myAudio.addEventListener('volumechange', () => {
 
 songSelect.selectedIndex = -1;
 songSelect.addEventListener('change', () => {
-    loadingAnimation.style.display = 'inline-block';
+    loadingAnimation.style.visibility = 'visible';
     myAudio.pause();
     if (!player.classList.contains('open')) {
         player.classList.remove('open');
@@ -130,7 +130,7 @@ songSelect.addEventListener('change', () => {
 
         })
         .then(() => {
-            loadingAnimation.style.display = 'none';
+            loadingAnimation.style.visibility = 'hidden';
             player.classList.add('open');
             // if (!myAudio.paused) {
             playBtn.children[0].setAttribute("name", "play-outline");
