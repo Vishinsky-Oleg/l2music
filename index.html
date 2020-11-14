@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./dist/css/style.css">
+    <script src="./dist/js/main.js" defer></script>
+    <script src="https://unpkg.com/ionicons@5.2.3/dist/ionicons.js"></script>
+</head>
+
+<body>
+    <audio src="" class="myAudio"></audio>
+    <div class="container">
+        <div class="songName">Welcome</div>
+        <div class="buttons"><button class="buttons-play">
+                <ion-icon name="play-outline"></ion-icon>
+            </button>
+            <button class="buttons-stop">
+                <ion-icon name="stop-outline"></ion-icon>
+            </button>
+            <button>
+                <a href="" class="buttons-download">
+                    <ion-icon name="download-outline"></ion-icon>
+                </a>
+            </button>
+            <button class="buttons-mute">
+                <ion-icon name="volume-mute-outline"></ion-icon>
+            </button></div>
+        <div>
+            <input type="range" id="volume-bar" class='slider' name="volume" min="0" max="1" value="1" step="0.01">
+            <label for="volume-bar">Volume</label>
+        </div>
+        <div class="timeline">
+            <div class="timeline-time">00:00</div>
+            <div class="timeline-time-right">00:00</div>
+            <span class="timeline-line"></span>
+        </div>
+
+    </div>
+    <div class="song-selection">
+        <label for="songs">Choose a song:</label>
+        <select name="songs" id="songs">
+            <option value="Crossroad at Dawn">Crossroad at Dawn / Gludio</option>
+            <option value="Caravans Crossing">Caravans Crossing / Gludin</option>
+            <option value="Merchant Ships from the East">Merchant Ships from the East / Giran</option>
+            <option value="Deep Shadows">Deep Shadows / Dark Elf Village</option>
+            <option value="Dance at the Festival">Dance at the Festival / Dwarven Village</option>
+            <option value="Shepard's Flute">Shepard's Flute / Dion</option>
+            <option value="Island Village">Island Village / Talking Island Village</option>
+            <option value="Forest Calling">Forest Calling / Hunters Village</option>
+            <option value="Lovers Reunited">Lovers Reunited / Heine</option>
+            <option value="Knighting Ceremony">Knighting Ceremony / Aden</option>
+            <option value="Unicorn's Rest">Unicorn's Rest / Elven Village</option>
+            <option value="Expedition March">Expedition March / Oren</option>
+            <option value="Gathering Armies">Gathering Armies / Orc Village </option>
+            <option value="Southern Vineyard">Southern Vineyard / Floran</option>
+        </select>
+    </div>
+</body>
+
+</html>

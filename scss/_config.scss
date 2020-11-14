@@ -1,0 +1,14 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: l2font;
+    src: url('../font/la2font.ttf');
+    src: url('../font/la2font.woff2') format('woff2'),
+        url('../font/la2font.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
