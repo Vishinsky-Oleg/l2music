@@ -114,7 +114,7 @@ myAudio.addEventListener('volumechange', () => {
 songSelect.selectedIndex = -1;
 songSelect.addEventListener('change', () => {
     if (!player.classList.contains('open')) {
-        player.classList.add('open');
+        player.classList.remove('open');
     }
     let selectedOption = songSelect.options[songSelect.selectedIndex];
     songTitle.textContent = selectedOption.textContent;
@@ -124,13 +124,24 @@ songSelect.addEventListener('change', () => {
         .then(function (myBlob) {
             let objectURL = URL.createObjectURL(myBlob);
             myAudio.src = objectURL;
-        });
 
-    if (!myAudio.paused) {
-        playBtn.children[0].setAttribute("name", "play-outline");
-        myAudio.currentTime = 0;
-        myAudio.play();
-    }
+        })
+        .then(() => {
+                player.classList.remove('open');
+                if (!myAudio.paused) {
+                    playBtn.children[0].setAttribute("name", "play-outline");
+                    myAudio.currentTime = 0;
+                    myAudio.play();
+                }
+            }
+
+        );
+
+    // if (!myAudio.paused) {
+    //     playBtn.children[0].setAttribute("name", "play-outline");
+    //     myAudio.currentTime = 0;
+    //     myAudio.play();
+    // }
     downloadBtn.setAttribute('download', songSelect.value);
     downloadBtn.setAttribute('href', path);
     timelineTimeFull.textContent = '';
