@@ -113,7 +113,7 @@ myAudio.addEventListener('volumechange', () => {
 
 songSelect.selectedIndex = -1;
 songSelect.addEventListener('change', () => {
-    if (!player.classList.contains('open')) {
+    if (player.classList.contains('open')) {
         player.classList.remove('open');
     }
     let selectedOption = songSelect.options[songSelect.selectedIndex];
@@ -127,24 +127,28 @@ songSelect.addEventListener('change', () => {
 
         })
         .then(() => {
-                player.classList.remove('open');
-                if (!myAudio.paused) {
-                    playBtn.children[0].setAttribute("name", "play-outline");
-                    myAudio.currentTime = 0;
-                    myAudio.play();
-                }
-            }
-
-        );
+            player.classList.add('open');
+            // if (!myAudio.paused) {
+            playBtn.children[0].setAttribute("name", "play-outline");
+            timelineLine.style.width = 0 + "px";
+            myAudio.currentTime = 0;
+            myAudio.pause();
+            // }
+        })
+        .then(() => {
+            downloadBtn.setAttribute('download', songSelect.value);
+            downloadBtn.setAttribute('href', path);
+            timelineTimeFull.textContent = '';
+        });
 
     // if (!myAudio.paused) {
     //     playBtn.children[0].setAttribute("name", "play-outline");
     //     myAudio.currentTime = 0;
     //     myAudio.play();
     // }
-    downloadBtn.setAttribute('download', songSelect.value);
-    downloadBtn.setAttribute('href', path);
-    timelineTimeFull.textContent = '';
+    // downloadBtn.setAttribute('download', songSelect.value);
+    // downloadBtn.setAttribute('href', path);
+    // timelineTimeFull.textContent = '';
 
 
 

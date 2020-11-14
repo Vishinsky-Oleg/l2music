@@ -39,7 +39,6 @@ body {
   transition: all 0.8s ease-in-out;
   overflow: hidden;
   height: 0px;
-  height: 320px;
 }
 
 .container.open {
