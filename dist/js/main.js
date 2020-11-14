@@ -13,6 +13,7 @@ const timelineLine = document.querySelector('.timeline-line');
 const songSelect = document.querySelector("#songs");
 const player = document.querySelector(".container");
 const songTitle = document.querySelector(".songName");
+const loadingAnimation = document.querySelector(".lds-roller");
 
 playBtn.addEventListener('click', () => {
     if (myAudio.paused) {
@@ -113,7 +114,9 @@ myAudio.addEventListener('volumechange', () => {
 
 songSelect.selectedIndex = -1;
 songSelect.addEventListener('change', () => {
-    if (player.classList.contains('open')) {
+    loadingAnimation.style.display = 'inline-block';
+    myAudio.pause();
+    if (!player.classList.contains('open')) {
         player.classList.remove('open');
     }
     let selectedOption = songSelect.options[songSelect.selectedIndex];
@@ -127,12 +130,13 @@ songSelect.addEventListener('change', () => {
 
         })
         .then(() => {
+            loadingAnimation.style.display = 'none';
             player.classList.add('open');
             // if (!myAudio.paused) {
             playBtn.children[0].setAttribute("name", "play-outline");
             timelineLine.style.width = 0 + "px";
             myAudio.currentTime = 0;
-            myAudio.pause();
+            // myAudio.pause();
             // }
         })
         .then(() => {
