@@ -116,7 +116,7 @@ songSelect.selectedIndex = -1;
 songSelect.addEventListener('change', () => {
     loadingAnimation.style.visibility = 'visible';
     myAudio.pause();
-    if (!player.classList.contains('open')) {
+    if (player.classList.contains('open')) {
         player.classList.remove('open');
     }
     let selectedOption = songSelect.options[songSelect.selectedIndex];
